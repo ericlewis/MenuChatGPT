@@ -1,6 +1,6 @@
 # MenuChatGPT
 
-A lazy implementation ChatGPT as a menu bar app for macOS.
+A lazy implementation of ChatGPT as a menu bar app for macOS.
 
 ## Attribution
 
