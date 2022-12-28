@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		68ABB88B295B56AE00117D4C /* MenuChatGPTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ABB88A295B56AE00117D4C /* MenuChatGPTApp.swift */; };
 		68ABB88F295B56AF00117D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ABB88E295B56AF00117D4C /* Assets.xcassets */; };
-		68ABB892295B56AF00117D4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ABB891295B56AF00117D4C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68ABB887295B56AE00117D4C /* MenuChatGPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuChatGPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ABB88A295B56AE00117D4C /* MenuChatGPTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChatGPTApp.swift; sourceTree = "<group>"; };
 		68ABB88E295B56AF00117D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		68ABB891295B56AF00117D4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68ABB893295B56AF00117D4C /* MenuChatGPT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuChatGPT.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,17 +51,8 @@
 				68ABB88A295B56AE00117D4C /* MenuChatGPTApp.swift */,
 				68ABB88E295B56AF00117D4C /* Assets.xcassets */,
 				68ABB893295B56AF00117D4C /* MenuChatGPT.entitlements */,
-				68ABB890295B56AF00117D4C /* Preview Content */,
 			);
 			path = MenuChatGPT;
-			sourceTree = "<group>";
-		};
-		68ABB890295B56AF00117D4C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				68ABB891295B56AF00117D4C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +117,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68ABB892295B56AF00117D4C /* Preview Assets.xcassets in Resources */,
 				68ABB88F295B56AF00117D4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +257,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MenuChatGPT/Preview Content\"";
 				DEVELOPMENT_TEAM = F9PGNEMEHU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -299,7 +286,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MenuChatGPT/Preview Content\"";
 				DEVELOPMENT_TEAM = F9PGNEMEHU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
