@@ -6,11 +6,10 @@ struct WebView: NSViewRepresentable {
   static let shared = WebView(URLRequest(url: URL(string: "https://chat.openai.com/chat")!))
 
   let request: URLRequest
-  let webView: WKWebView
+  let webView: WKWebView = WKWebView()
 
   init(_ request: URLRequest) {
     self.request = request
-    self.webView = WKWebView()
   }
 
   func makeNSView(context: Context) -> WKWebView {
@@ -42,11 +41,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     let contentView = ContentView()
 
-    statusBarMenu = NSMenu(title: "Status Bar Menu")
+    // our right click menu
+    statusBarMenu = NSMenu(title: "ChatGPT Menu")
     statusBarMenu.delegate = self
     statusBarMenu.addItem(
       withTitle: "New Chat",
-      action: #selector(AppDelegate.reload),
+      action: #selector(AppDelegate.newChat),
       keyEquivalent: "")
     statusBarMenu.addItem(.separator())
     statusBarMenu.addItem(
@@ -67,11 +67,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
       button.sendAction(on: [.leftMouseUp, .rightMouseUp])
     }
 
-    do {
-      try SMAppService.mainApp.register()
-    } catch {
-      print(error)
-    }
+    // launch all the time!
+    try? SMAppService.mainApp.register()
   }
 
   @objc func togglePopover(_ sender: NSStatusBarButton) {
@@ -89,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     statusBarItem.menu = nil
   }
 
-  @objc func reload() {
+  @objc func newChat() {
     WebView.shared.reload()
     togglePopover(statusBarItem.button!)
   }
