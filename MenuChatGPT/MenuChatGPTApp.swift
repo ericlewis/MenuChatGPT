@@ -45,7 +45,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   @objc func togglePopover(_ sender: NSStatusBarButton) {
-    if self.popover.isShown {
+    let event = NSApp.currentEvent!
+
+    if event.type == NSEvent.EventType.rightMouseUp {
+      NSApp.terminate(self)
+    } else if self.popover.isShown {
       self.popover.performClose(sender)
     } else {
       self.popover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.minY)
