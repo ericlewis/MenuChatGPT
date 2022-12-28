@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     statusBarMenu = NSMenu(title: "Status Bar Menu")
     statusBarMenu.delegate = self
     statusBarMenu.addItem(
-      withTitle: "Refresh",
+      withTitle: "New Chat",
       action: #selector(AppDelegate.reload),
       keyEquivalent: "")
     statusBarMenu.addItem(.separator())
@@ -91,6 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
   @objc func reload() {
     WebView.shared.reload()
+    togglePopover(statusBarItem.button!)
   }
 
   @objc func quit() {
