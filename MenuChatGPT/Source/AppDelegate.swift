@@ -49,10 +49,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
       button.action = #selector(togglePopover(_:))
       button.sendAction(on: [.leftMouseUp, .rightMouseUp])
     }
-
-    if SMAppService.mainApp.status == .notRegistered {
-      try? SMAppService.mainApp.register()
-    }
   }
 
   @objc func togglePopover(_ sender: NSStatusBarButton) {
