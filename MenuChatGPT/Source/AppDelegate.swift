@@ -20,11 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
     // our right click menu
     statusBarMenu = NSMenu(title: "ChatGPT Menu")
     statusBarMenu.delegate = self
-    statusBarMenu.addItem(
-      withTitle: "New Chat",
-      action: #selector(AppDelegate.newChat),
-      keyEquivalent: "n")
-    statusBarMenu.addItem(.separator())
     let toggle = statusBarMenu.addItem(
       withTitle: "Open at Login",
       action: #selector(AppDelegate.openAtLogin),
@@ -66,9 +61,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
     statusBarItem.menu = nil
   }
 
-  @objc func newChat() {
+  @objc func reload() {
     WebView.shared.reload()
-    togglePopover(statusBarItem.button!)
   }
 
   @objc func quit() {
