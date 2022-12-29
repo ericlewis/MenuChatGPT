@@ -24,10 +24,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
       withTitle: "New Chat",
       action: #selector(AppDelegate.newChat),
       keyEquivalent: "n")
-    statusBarMenu.addItem(
-      withTitle: "New Chat",
-      action: #selector(AppDelegate.newChat),
-      keyEquivalent: "n")
+    statusBarMenu.addItem(.separator())
+    let toggle = statusBarMenu.addItem(
+      withTitle: "Open at Login",
+      action: #selector(AppDelegate.openAtLogin),
+      keyEquivalent: "")
+    toggle.state = (SMAppService.mainApp.status == .enabled) ? .on : .off
     statusBarMenu.addItem(.separator())
     statusBarMenu.addItem(
       withTitle: "Quit",
@@ -48,8 +50,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
       button.sendAction(on: [.leftMouseUp, .rightMouseUp])
     }
 
-    // launch all the time!
-    try? SMAppService.mainApp.register()
+    if SMAppService.mainApp.status == .notRegistered {
+      try? SMAppService.mainApp.register()
+    }
   }
 
   @objc func togglePopover(_ sender: NSStatusBarButton) {
@@ -78,5 +81,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
 
   @objc func popoverShouldDetach(_ popover: NSPopover) -> Bool {
     true
+  }
+
+  @objc func openAtLogin(_ sender: NSMenuItem) {
+    do {
+      if SMAppService.mainApp.status == .enabled {
+        try SMAppService.mainApp.unregister()
+        sender.state = .off
+      } else {
+        try SMAppService.mainApp.register()
+        sender.state = .on
+      }
+    } catch {
+#if DEBUG
+      print(error)
+#endif
+    }
   }
 }
