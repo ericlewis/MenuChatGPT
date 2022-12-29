@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		685E0AC9295DFED300CB22B5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685E0AC8295DFED300CB22B5 /* WebView.swift */; };
+		685E0ACB295DFF0800CB22B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685E0ACA295DFF0800CB22B5 /* AppDelegate.swift */; };
+		685E0ACD295DFF6300CB22B5 /* NSPopover+backgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685E0ACC295DFF6300CB22B5 /* NSPopover+backgroundColor.swift */; };
+		685E0AD0295DFFCA00CB22B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685E0ACF295DFFCA00CB22B5 /* ContentView.swift */; };
 		68ABB88B295B56AE00117D4C /* MenuChatGPTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ABB88A295B56AE00117D4C /* MenuChatGPTApp.swift */; };
 		68ABB88F295B56AF00117D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ABB88E295B56AF00117D4C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		685E0AC8295DFED300CB22B5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		685E0ACA295DFF0800CB22B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		685E0ACC295DFF6300CB22B5 /* NSPopover+backgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+backgroundColor.swift"; sourceTree = "<group>"; };
+		685E0ACF295DFFCA00CB22B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		68ABB887295B56AE00117D4C /* MenuChatGPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuChatGPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ABB88A295B56AE00117D4C /* MenuChatGPTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChatGPTApp.swift; sourceTree = "<group>"; };
 		68ABB88E295B56AF00117D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,6 +37,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		685E0ACE295DFF8500CB22B5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				68ABB88A295B56AE00117D4C /* MenuChatGPTApp.swift */,
+				685E0AC8295DFED300CB22B5 /* WebView.swift */,
+				685E0ACA295DFF0800CB22B5 /* AppDelegate.swift */,
+				685E0ACC295DFF6300CB22B5 /* NSPopover+backgroundColor.swift */,
+				685E0ACF295DFFCA00CB22B5 /* ContentView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		68ABB87E295B56AE00117D4C = {
 			isa = PBXGroup;
 			children = (
@@ -48,7 +68,7 @@
 		68ABB889295B56AE00117D4C /* MenuChatGPT */ = {
 			isa = PBXGroup;
 			children = (
-				68ABB88A295B56AE00117D4C /* MenuChatGPTApp.swift */,
+				685E0ACE295DFF8500CB22B5 /* Source */,
 				68ABB88E295B56AF00117D4C /* Assets.xcassets */,
 				68ABB893295B56AF00117D4C /* MenuChatGPT.entitlements */,
 			);
@@ -128,7 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				685E0ACD295DFF6300CB22B5 /* NSPopover+backgroundColor.swift in Sources */,
+				685E0AD0295DFFCA00CB22B5 /* ContentView.swift in Sources */,
+				685E0ACB295DFF0800CB22B5 /* AppDelegate.swift in Sources */,
 				68ABB88B295B56AE00117D4C /* MenuChatGPTApp.swift in Sources */,
+				685E0AC9295DFED300CB22B5 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
