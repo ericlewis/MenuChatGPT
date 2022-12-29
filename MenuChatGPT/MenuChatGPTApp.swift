@@ -6,7 +6,18 @@ struct WebView: NSViewRepresentable {
   static let shared = WebView(URLRequest(url: URL(string: "https://chat.openai.com/chat")!))
 
   let request: URLRequest
-  let webView: WKWebView = WKWebView()
+  let webView: WKWebView = {
+    let config = WKWebViewConfiguration()
+    config.userContentController.addUserScript(
+      .init(
+        source: "setInterval(async function() { const res = await fetch('/api/auth/session'); console.log(res.ok); }, 30000);",
+        injectionTime: .atDocumentEnd,
+        forMainFrameOnly: false
+      )
+    )
+    let webView = WKWebView(frame: .zero, configuration: config)
+    return webView
+  }()
 
   init(_ request: URLRequest) {
     self.request = request
