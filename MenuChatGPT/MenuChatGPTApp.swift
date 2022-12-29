@@ -2,6 +2,9 @@ import ServiceManagement
 import SwiftUI
 import WebKit
 
+let width: CGFloat = 520
+let height: CGFloat = 640
+
 struct WebView: NSViewRepresentable {
   static let shared = WebView(URLRequest(url: URL(string: "https://chat.openai.com/chat")!))
 
@@ -10,7 +13,12 @@ struct WebView: NSViewRepresentable {
     let config = WKWebViewConfiguration()
     config.userContentController.addUserScript(
       .init(
-        source: "setInterval(async function() { const res = await fetch('/api/auth/session'); console.log(res.ok); }, 30000);",
+        source: #"""
+setInterval(async () => {
+    const res = await fetch('/api/auth/session');
+    console.log(res.ok);
+  }, 30000);
+"""#,
         injectionTime: .atDocumentEnd,
         forMainFrameOnly: false
       )
@@ -40,11 +48,11 @@ struct WebView: NSViewRepresentable {
 struct ContentView: View {
   var body: some View {
     WebView.shared
-      .frame(width: 520, height: 640)
+      .frame(width: width, height: height)
   }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDelegate {
   var popover: NSPopover!
   var statusBarItem: NSStatusItem!
   var statusBarMenu: NSMenu!
@@ -65,10 +73,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
       action: #selector(AppDelegate.quit),
       keyEquivalent: "")
 
-    let popover = NSPopover()
-    popover.behavior = .transient
-    popover.contentViewController = NSHostingController(rootView: contentView)
-    self.popover = popover
+    self.popover = NSPopover()
+    self.popover.contentSize = .init(width: width, height: height)
+    self.popover.behavior = .transient
+    self.popover.contentViewController = NSHostingController(rootView: contentView)
+    self.popover.delegate = self
     self.popover.backgroundColor = #colorLiteral(red: 0.20, green: 0.21, blue: 0.25, alpha: 1.00)
 
     self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
@@ -104,6 +113,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
   @objc func quit() {
     NSApp.terminate(self)
+  }
+
+  @objc func popoverShouldDetach(_ popover: NSPopover) -> Bool {
+    true
   }
 }
 
