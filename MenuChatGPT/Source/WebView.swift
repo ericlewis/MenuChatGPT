@@ -17,11 +17,14 @@ const addStyle = (() => {
 })();
 
 addStyle(`
+  .sticky.top-0.z-10.flex.items-center {
+    padding-top: 0px !important;
+  }
   .px-3.pt-2.pb-3.text-center.text-xs {
     visibility:hidden !important;
     height: 0px !important;
     padding-bottom: 0px !important;
-  };
+  }
 `);
 
 setInterval(async () => {

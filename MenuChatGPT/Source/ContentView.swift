@@ -2,7 +2,11 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    WebView.shared
-      .background(Color("BackgroundColor"))
+    VStack(spacing: 0) {
+      Rectangle().foregroundStyle(Color("DarkGrayColor"))
+        .frame(height: 20)
+      WebView.shared
+    }
+    .background(Color("BackgroundColor"))
   }
 }
