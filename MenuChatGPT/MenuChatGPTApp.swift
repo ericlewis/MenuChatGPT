@@ -14,10 +14,24 @@ struct WebView: NSViewRepresentable {
     config.userContentController.addUserScript(
       .init(
         source: #"""
+const addStyle = (() => {
+  const style = document.createElement('style');
+  document.head.append(style);
+  return (styleString) => style.textContent = styleString;
+})();
+
+addStyle(`
+  .px-3.pt-2.pb-3.text-center.text-xs {
+    visibility:hidden !important;
+    height: 0px !important;
+    padding-bottom: 0px !important;
+  };
+`);
+
 setInterval(async () => {
     const res = await fetch('/api/auth/session');
     console.log(res.ok);
-  }, 30000);
+}, 30000);
 """#,
         injectionTime: .atDocumentEnd,
         forMainFrameOnly: false
