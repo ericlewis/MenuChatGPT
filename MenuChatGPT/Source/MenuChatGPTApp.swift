@@ -6,6 +6,8 @@ struct MenuChatGPTApp: App {
   var appDelegate
 
   var body: some Scene {
-    _EmptyScene()
+    WindowGroup {
+      EmptyView()
+    }
   }
 }

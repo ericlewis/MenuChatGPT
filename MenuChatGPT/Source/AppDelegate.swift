@@ -10,6 +10,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
   var statusBarMenu: NSMenu!
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
+
+    if let window = NSApplication.shared.windows.first {
+      window.close()
+    }
+
     let contentView = ContentView()
 
     // our right click menu
