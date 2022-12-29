@@ -19,6 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
       withTitle: "New Chat",
       action: #selector(AppDelegate.newChat),
       keyEquivalent: "n")
+    statusBarMenu.addItem(
+      withTitle: "New Chat",
+      action: #selector(AppDelegate.newChat),
+      keyEquivalent: "n")
     statusBarMenu.addItem(.separator())
     statusBarMenu.addItem(
       withTitle: "Quit",

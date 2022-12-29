@@ -34,6 +34,7 @@ setInterval(async () => {
       )
     )
     let webView = WKWebView(frame: .zero, configuration: config)
+    webView.underPageBackgroundColor = NSColor(named: "BackgroundColor")
     return webView
   }()
 
