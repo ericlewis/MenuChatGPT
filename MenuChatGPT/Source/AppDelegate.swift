@@ -1,7 +1,7 @@
 import ServiceManagement
 import SwiftUI
 
-let width: CGFloat = 520
+let width: CGFloat = 560
 let height: CGFloat = 640
 
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDelegate {
@@ -48,8 +48,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSPopoverDel
 
   @objc func togglePopover(_ sender: NSStatusBarButton) {
     if NSApp.currentEvent!.type == NSEvent.EventType.rightMouseUp {
-      statusBarItem.menu = statusBarMenu
-      statusBarItem.button?.performClick(nil)
+      self.statusBarItem.menu = statusBarMenu
+      self.statusBarItem.button?.performClick(nil)
     } else if self.popover.isShown {
       self.popover.performClose(sender)
     } else {
